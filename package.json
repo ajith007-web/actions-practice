@@ -1,0 +1,12 @@
+{
+  "name": "gha-cache-practice",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "^4.19.2",
+    "lodash": "^4.17.21",
+    "typescript": "^5.4.5"
+  },
+  "scripts": {
+    "build": "echo 'Simulating a heavy build step...'"
+  }
+}
