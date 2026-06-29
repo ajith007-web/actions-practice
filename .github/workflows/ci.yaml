@@ -14,9 +14,17 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          cache: 'npm'
           node-version: '24'
-
+      # 🛠️ Hand-crafted NPM Cache (No lockfile required)
+      - name: Cache Global NPM Directory
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          # Uses a generic static key that updates daily, bypassing lockfile hashes
+          key: ${{ runner.os }}-npm-cache-${{ github.run_id }}
+          restore-keys: |
+            ${{ runner.os }}-npm-cache-
+                
       - name: Install dependencies
         run: npm install
 
